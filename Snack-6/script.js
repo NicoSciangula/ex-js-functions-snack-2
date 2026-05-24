@@ -1,14 +1,13 @@
-let contatore = 0;
-
-const interval = (time) => {
-  setInterval(() => {
-    contatore++;
-    console.log(`Contatore: ${contatore}`);
-  }, time);
-};
-
 function creaContatore(time) {
-  interval(time);
+  let contatore = 0;
+  return () => {
+    setInterval(() => {
+      contatore++;
+      console.log(`Contatore: ${contatore}`);
+    }, time);
+  };
 }
 
-creaContatore(1000);
+const contaSecondo = creaContatore(1000);
+
+contaSecondo();
